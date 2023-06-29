@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-@main
+//@main
 struct IEUK_TaskApp: App {
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabbarView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

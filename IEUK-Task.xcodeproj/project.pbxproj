@@ -16,6 +16,8 @@
 		41D4E52A2A4DA391000C8E28 /* IEUK_TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4E5292A4DA391000C8E28 /* IEUK_TaskTests.swift */; };
 		41D4E5342A4DA392000C8E28 /* IEUK_TaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4E5332A4DA392000C8E28 /* IEUK_TaskUITests.swift */; };
 		41D4E5362A4DA392000C8E28 /* IEUK_TaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4E5352A4DA392000C8E28 /* IEUK_TaskUITestsLaunchTests.swift */; };
+		41D4E5432A4DA46B000C8E28 /* ManufactureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4E5422A4DA46B000C8E28 /* ManufactureView.swift */; };
+		41D4E5452A4DA5E0000C8E28 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4E5442A4DA5E0000C8E28 /* TabbarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		41D4E52F2A4DA392000C8E28 /* IEUK-TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IEUK-TaskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D4E5332A4DA392000C8E28 /* IEUK_TaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IEUK_TaskUITests.swift; sourceTree = "<group>"; };
 		41D4E5352A4DA392000C8E28 /* IEUK_TaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IEUK_TaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		41D4E5422A4DA46B000C8E28 /* ManufactureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufactureView.swift; sourceTree = "<group>"; };
+		41D4E5442A4DA5E0000C8E28 /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 				41D4E51C2A4DA391000C8E28 /* Persistence.swift */,
 				41D4E51E2A4DA391000C8E28 /* IEUK_Task.xcdatamodeld */,
 				41D4E5192A4DA391000C8E28 /* Preview Content */,
+				41D4E5422A4DA46B000C8E28 /* ManufactureView.swift */,
+				41D4E5442A4DA5E0000C8E28 /* TabbarView.swift */,
 			);
 			path = "IEUK-Task";
 			sourceTree = "<group>";
@@ -263,8 +269,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41D4E5452A4DA5E0000C8E28 /* TabbarView.swift in Sources */,
 				41D4E51D2A4DA391000C8E28 /* Persistence.swift in Sources */,
 				41D4E5162A4DA38E000C8E28 /* ContentView.swift in Sources */,
+				41D4E5432A4DA46B000C8E28 /* ManufactureView.swift in Sources */,
 				41D4E5202A4DA391000C8E28 /* IEUK_Task.xcdatamodeld in Sources */,
 				41D4E5142A4DA38E000C8E28 /* IEUK_TaskApp.swift in Sources */,
 			);

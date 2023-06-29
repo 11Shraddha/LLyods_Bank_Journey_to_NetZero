@@ -8,81 +8,55 @@
 import SwiftUI
 import CoreData
 
+import SwiftUI
+
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
+    @State private var electricityUsage: Double = 0
+    @State private var gasUsage: Double = 0
+    @State private var carMileage: Double = 0
+    @State private var carbonFootprint: Double = 0
+    
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
-                }
-                .onDelete(perform: deleteItems)
+        Form {
+            Section(header: Text("Electricity Usage (kWh)")) {
+                TextField("Enter electricity usage", value: $electricityUsage, formatter: NumberFormatter())
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
+            
+            Section(header: Text("Gas Usage (Therms)")) {
+                TextField("Enter gas usage", value: $gasUsage, formatter: NumberFormatter())
             }
-            Text("Select an item")
+            
+            Section(header: Text("Car Mileage (Miles)")) {
+                TextField("Enter car mileage", value: $carMileage, formatter: NumberFormatter())
+            }
+            
+            Section(header: Text("Carbon Footprint")) {
+                Text("Your carbon footprint: \(carbonFootprint, specifier: "%.2f") kg CO2e")
+            }
+        }
+        .onChange(of: electricityUsage) { _ in
+            calculateCarbonFootprint()
+        }
+        .onChange(of: gasUsage) { _ in
+            calculateCarbonFootprint()
+        }
+        .onChange(of: carMileage) { _ in
+            calculateCarbonFootprint()
         }
     }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
+    
+    func calculateCarbonFootprint() {
+        // Perform calculations to calculate the carbon footprint
+        let electricityEmissions = electricityUsage * 0.5 // Example emission factor for electricity usage
+        let gasEmissions = gasUsage * 5 // Example emission factor for gas usage
+        let carEmissions = carMileage * 0.2 // Example emission factor for car mileage
+        
+        carbonFootprint = electricityEmissions + gasEmissions + carEmissions
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
     }
 }
