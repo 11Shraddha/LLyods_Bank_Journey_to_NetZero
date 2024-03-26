@@ -1,5 +1,7 @@
 # JOURNEY TO NET ZERO IN AGRICULTURE SECTOR 
 
+[Download PDF](https://github.com/11Shraddha/LLyods_Bank_Journey_to_NetZero/blob/main/SS-Journey%20to%20Net%20Zero.pdf)
+
 **Barriers to net zero action for farmers**
 
 1. *Lack of Data:* Agriculture SMEs often lake the necessary data to track their emissions accurately so they are unable to take meaningful actions towards net-zero targets. Many SMEs don’t own the building so it is not always possible to install meters to measure energy usage. Due to this few SMEs don’t know how their business is related to sustainability and journey to Net Zero.
